@@ -2,9 +2,11 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using VegaCore.Persistence;
 
 namespace VegaCore
 {
@@ -26,6 +28,10 @@ namespace VegaCore
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+             services.AddDbContext<VegaCoreDbContext>(opt => 
+                opt.UseSqlite(Configuration.GetConnectionString("VegaCoreContext")));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
