@@ -8,8 +8,8 @@ using VegaCore.Persistence;
 namespace VegaCore.Migrations
 {
     [DbContext(typeof(VegaCoreDbContext))]
-    [Migration("20200418230230_InitialModel")]
-    partial class InitialModel
+    [Migration("20200419000729_SeedDatabase")]
+    partial class SeedDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,7 +24,9 @@ namespace VegaCore.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
-                        .HasColumnType("TEXT");
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(255);
 
                     b.HasKey("Id");
 
@@ -41,13 +43,15 @@ namespace VegaCore.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
-                        .HasColumnType("TEXT");
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(255);
 
                     b.HasKey("Id");
 
                     b.HasIndex("MakeId");
 
-                    b.ToTable("Model");
+                    b.ToTable("Models");
                 });
 
             modelBuilder.Entity("VegaCore.Models.Model", b =>

@@ -1,4 +1,15 @@
 {
-    "sqltools.connections": [],
+    "sqltools.connections": [
+        {
+            "database": "${workspaceFolder}\\VegaCore.db",
+            "dialect": "SQLite",
+            "name": "VegaCoreContext"
+        },
+        {
+            "database": "${workspaceFolder}\\VegaCore.db",
+            "dialect": "SQLite",
+            "name": "VegaCoreContext"
+        }
+    ],
     "sqltools.useNodeRuntime": true
 }
