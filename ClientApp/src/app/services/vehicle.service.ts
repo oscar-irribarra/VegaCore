@@ -1,12 +1,11 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { map } from "rxjs/operators";
-import { Observable } from "rxjs";
 
 @Injectable({
   providedIn: "root",
 })
-export class MakeService {
+export class VehicleService {
   httpOptions = {
     headers: new HttpHeaders({ "Content-Type": "application/json" }),
   };
@@ -16,9 +15,9 @@ export class MakeService {
   getMakes() {
    return this.http.get("/api/makes", this.httpOptions).pipe(map((resp:[]) => resp));
   }
+
+  getFeatures(){
+    return this.http.get('/api/features', this.httpOptions).pipe(map((resp:[]) => resp));
+  }
 }
 
-interface make {
-  id: number;
-  name: string;
-}
