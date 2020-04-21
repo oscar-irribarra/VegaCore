@@ -6,9 +6,13 @@
 *.user
 *.userosscache
 *.sln.docstates
+
+#db Files
 *.db
+VegaCore.db
 *.db-shm
 *.db-wal
+${workspaceFolder}/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
