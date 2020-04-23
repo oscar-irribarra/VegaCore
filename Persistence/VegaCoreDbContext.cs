@@ -5,6 +5,7 @@ namespace VegaCore.Persistence
 {
     public class VegaCoreDbContext : DbContext
     {
+        public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<Make> Makes { get; set; }
         public DbSet<Feature> Features { get; set; }
 
