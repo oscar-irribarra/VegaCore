@@ -1,4 +1,4 @@
-namespace VegaCore.Persistence
+namespace VegaCore.Controllers.Resources
 {
     public class KeyValuePairResource
     {
