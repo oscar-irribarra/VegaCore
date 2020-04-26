@@ -23,7 +23,6 @@ namespace VegaCore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllersWithViews();
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -31,11 +30,12 @@ namespace VegaCore
                 configuration.RootPath = "ClientApp/dist";
             });
 
+            services.AddScoped<IVehicleRepository, VehicleRepository>();
+
             services.AddAutoMapper(typeof(Startup));
 
              services.AddDbContext<VegaCoreDbContext>(opt => 
                 opt.UseSqlite(Configuration.GetConnectionString("VegaCoreContext")));
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
